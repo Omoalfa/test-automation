@@ -4,7 +4,7 @@ import { chromium } from 'playwright';
 const app = express();
 
 app.get('/scrape', async (req, res) => {
-  const browser = await chromium.launch({ headless: false });
+  const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
 
   try {
@@ -19,7 +19,7 @@ app.get('/scrape', async (req, res) => {
   }
 });
 
-const port = Number(process.env.PORT || 3000);
+const port = Number(process.env.PORT || 4000);
 app.listen(port, () => {
   console.log(`🚀 Server running at http://localhost:${port}`);
 });
